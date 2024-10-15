@@ -14,7 +14,9 @@ const Navbar = () => {
   return (
     <div className="flex items-center justify-between py-5 font-medium container mx-auto">
       {/* logo is here */}
-      <img src={logo} alt="logo" className="w-10 h-10" />
+      <Link to={"/"}>
+        <img src={logo} alt="logo" className="w-10 h-10" />
+      </Link>
 
       {/* Menus is here */}
       <Menu />
