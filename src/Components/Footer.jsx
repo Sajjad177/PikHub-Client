@@ -37,7 +37,8 @@ const Footer = () => {
       </div>
 
       {/* Bottom footer text */}
-      <div className="text-center text-gray-500 mt-10">
+      <hr />
+      <div className="text-center text-gray-500 mt-8">
         ©2024 PikHub.com. All rights reserved.
       </div>
     </div>
