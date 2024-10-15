@@ -5,7 +5,7 @@ const NewsLetterBox = () => {
   };
 
   return (
-    <div className="text-center mt-10">
+    <div className="text-center mt-10 p-1">
       <p className="text-2xl font-medium text-gray-800">
         Subscribe Now & get{" "}
         <span className="text-orange-600 font-semibold inline-block animate-bounce">

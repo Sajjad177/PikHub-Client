@@ -96,7 +96,9 @@ const Navbar = () => {
 
           {/* Optional footer or extra content */}
           <div className="mt-auto p-4 bg-gray-100">
-            <p className="text-sm text-center">© 2024 Your Company</p>
+            <p className="text-sm text-center">
+              © 2024 PikHub.com. All rights reserved.
+            </p>
           </div>
         </div>
       </div>
