@@ -4,6 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* this one for navbar  */
 a.active hr {
   display: block;
+}
+
+/* this one for sidebar  */
+@media (max-width:640px){
+  a.active {
+    background-color: black;
+    color: whitesmoke;
+  }
 }

@@ -27,7 +27,6 @@ const ProductItem = ({ id, image, name, price }) => {
   );
 };
 
-// Add PropTypes validation
 ProductItem.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   image: PropTypes.string.isRequired,
