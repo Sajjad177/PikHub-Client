@@ -3,7 +3,7 @@ import Navbar from "../Components/Navbar";
 
 const Root = () => {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto font-firstFont">
       <Navbar />
       <Outlet />
     </div>
