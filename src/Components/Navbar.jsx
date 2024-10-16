@@ -3,13 +3,15 @@ import { IoSearchOutline } from "react-icons/io5";
 import { IoMenuSharp } from "react-icons/io5";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logo from "../assets/logo2.jpeg";
 import user from "../assets/profile.png";
 import cart from "../assets/cart.png";
+import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
+  const {setShowSearch} = useContext(ShopContext)
 
   return (
     <div className="flex items-center justify-between py-5 font-medium container mx-auto">
@@ -22,7 +24,8 @@ const Navbar = () => {
       <Menu />
 
       <div className="flex items-center gap-6">
-        <IoSearchOutline className="w-8 h-8 cursor-pointer" />
+        {/* search icon added there */}
+        <IoSearchOutline onClick={() => setShowSearch(true)} className="w-8 h-8 cursor-pointer" />
         <div className="group relative">
           <img src={user} alt="user" className="w-7 h-7" />
           <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">

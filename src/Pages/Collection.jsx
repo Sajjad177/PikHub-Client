@@ -10,7 +10,7 @@ const Collection = () => {
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
-  const [sortType, setSortType] = useState("relevant")
+  const [sortType, setSortType] = useState("relevant");
 
   // for category section
   const toggleCategory = (e) => {
@@ -68,8 +68,10 @@ const Collection = () => {
     }
   };
 
+  //! Time will start from        ->  2-30-00  <-
+
   useEffect(() => {
-    setFilterProducts(products); 
+    setFilterProducts(products);
   }, [products]);
 
   useEffect(() => {
@@ -77,8 +79,8 @@ const Collection = () => {
   }, [category, subCategory]);
 
   useEffect(() => {
-    sortProduct()
-  },[sortType])
+    sortProduct();
+  }, [sortType]);
 
   return (
     <div className="flex flex-col sm:flex-row gap-5 pt-10 border-t px-4 sm:px-10">
@@ -180,7 +182,10 @@ const Collection = () => {
           <Title text1={"ALL"} text2={"COLLECTIONS"} />
 
           {/* Sorting dropdown */}
-          <select onChange={(e) => setSortType(e.target.value)} className="border-2 rounded-md border-gray-300 text-sm px-3 py-2">
+          <select
+            onChange={(e) => setSortType(e.target.value)}
+            className="border-2 rounded-md border-gray-300 text-sm px-3 py-2"
+          >
             <option value="relevant">Sort by: Relevant</option>
             <option value="low-high">Sort by: Low-High</option>
             <option value="high-low">Sort by: High-Low</option>
