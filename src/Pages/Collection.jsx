@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { ShopContext } from "../context/ShopContext";
 import { MdArrowForwardIos } from "react-icons/md";
-import Title from "../Components/Title";
 import ProductItem from "../Components/ProductItem";
+import Title from "../Components/Title";
+import { ShopContext } from "../context/ShopContext";
 
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext);
@@ -203,7 +203,7 @@ const Collection = () => {
             filterProducts.map((item, idx) => (
               <ProductItem
                 key={idx}
-                id={item.id}
+                id={item._id}
                 image={item.image}
                 name={item.name}
                 price={item.price}

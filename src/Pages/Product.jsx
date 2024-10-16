@@ -1,23 +1,21 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ShopContext } from "../context/ShopContext";
 import ReactStars from "react-stars";
 import RelatedProduct from "../Components/RelatedProduct";
+import { ShopContext } from "../context/ShopContext";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(null);
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
 
   const fetchProductData = () => {
-    const product = products.find((item) => item.id == productId);
+    const product = products.find((item) => item._id == productId);
     if (product) {
       setProductData(product);
-      setImage(product.image[0]); // Set the first image as the default
-    } else {
-      console.log("Product not found");
+      setImage(product.image[0]);
     }
   };
 
@@ -88,7 +86,10 @@ const Product = () => {
               ))}
             </div>
           </div>
-          <button className="bg-black text-white px-8 py-3 text-sm active:bg-slate-700">
+          <button
+            onClick={() => addToCart(productData._id, size)}
+            className="bg-black text-white px-8 py-3 text-sm active:bg-slate-700"
+          >
             ADD TO CART
           </button>
           <hr className="mt-8 sm:w-4/5" />

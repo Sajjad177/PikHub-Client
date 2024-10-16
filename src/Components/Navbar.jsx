@@ -11,7 +11,7 @@ import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const {setShowSearch} = useContext(ShopContext)
+  const { setShowSearch, getCartCount } = useContext(ShopContext);
 
   return (
     <div className="flex items-center justify-between py-5 font-medium container mx-auto">
@@ -25,7 +25,10 @@ const Navbar = () => {
 
       <div className="flex items-center gap-6">
         {/* search icon added there */}
-        <IoSearchOutline onClick={() => setShowSearch(true)} className="w-8 h-8 cursor-pointer" />
+        <IoSearchOutline
+          onClick={() => setShowSearch(true)}
+          className="w-8 h-8 cursor-pointer"
+        />
         <div className="group relative">
           <img src={user} alt="user" className="w-7 h-7" />
           <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
@@ -39,7 +42,7 @@ const Navbar = () => {
         <Link to="/cart" className="relative">
           <img src={cart} alt="cart" className="w-8 h-8" />
           <p className="absolute right-[5px] bottom-[20px] w-5 text-center leading-5 bg-gray-500 text-white aspect-square rounded-full text-[10px]">
-            5
+            {getCartCount()}
           </p>
         </Link>
 
