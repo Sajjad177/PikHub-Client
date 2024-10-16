@@ -2,8 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "../Components/Title";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import CartTotal from "../Components/CartTotal";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const navigate = useNavigate();
   const { products, currency, cartItems, updateQuantity } =
     useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
@@ -59,6 +62,7 @@ const Cart = () => {
                 </div>
               </div>
 
+              {/* in onChange function when in input field quantity changing then it change also in cart product quantity number */}
               <input
                 type="number"
                 min={1}
@@ -81,6 +85,20 @@ const Cart = () => {
             </div>
           );
         })}
+      </div>
+      {/* --------- show total amount ------------- */}
+      <div className="flex justify-end my-20">
+        <div className="w-full sm:w-[450px]">
+          <CartTotal />
+          <div className="w-full text-end">
+            <button
+              onClick={() => navigate("/place-order")}
+              className="bg-black text-white text-sm my-8 px-8 py-3"
+            >
+              PROCEED TO CHECKOUT
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

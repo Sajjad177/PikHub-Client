@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
+// import { useNavigate } from "react-router-dom";
 
 export const ShopContext = createContext();
 
@@ -9,6 +10,7 @@ const ShopContextProvider = (props) => {
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
+  // const navigate = useNavigate();
 
   const currency = "$";
   const delivery_fee = 10;
@@ -40,6 +42,7 @@ const ShopContextProvider = (props) => {
       cartData[itemId][size] = 1;
     }
     setCartItems(cartData);
+    toast.success("Product added to cart successfully!");
   };
 
   //Cart counting --> :
@@ -60,12 +63,31 @@ const ShopContextProvider = (props) => {
     return totalCount;
   };
 
-  // update when remove some product from cart --> 
+  // update when remove some product from cart -->
   const updateQuantity = async (itemId, size, quantity) => {
     let cartData = structuredClone(cartItems);
 
     cartData[itemId][size] = quantity;
     setCartItems(cartData);
+  };
+
+  // Get cart amount -->
+  const getCartAmount = () => {
+    let totalAmount = 0;
+
+    for (const items in cartItems) {
+      let itemInfo = products.find((product) => product._id == items);
+      for (const item in cartItems[items]) {
+        try {
+          if (cartItems[items][item] > 0) {
+            totalAmount += itemInfo.price * cartItems[items][item];
+          }
+        } catch (error) {
+          toast.warn(error);
+        }
+      }
+    }
+    return totalAmount;
   };
 
   const value = {
@@ -80,6 +102,8 @@ const ShopContextProvider = (props) => {
     addToCart,
     getCartCount,
     updateQuantity,
+    getCartAmount,
+    // navigate,
   };
 
   return (
