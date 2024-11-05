@@ -24,7 +24,7 @@ const Navbar = () => {
       <Menu />
 
       <div className="flex items-center gap-6">
-        {/* search icon added there */}
+        {/* ------search icon added there ------ */}
         <IoSearchOutline
           onClick={() => setShowSearch(true)}
           className="w-8 h-8 cursor-pointer"
@@ -54,7 +54,7 @@ const Navbar = () => {
         />
       </div>
 
-      {/* sidebar menu for small device */}
+      {/* ------ sidebar menu for small device ------ */}
       <div
         className={`fixed top-0 right-0 bottom-0 bg-white z-50 transition-transform duration-300 ease-in-out ${
           visible ? "translate-x-0 w-3/4" : "translate-x-full w-0"
